@@ -69,9 +69,12 @@ Inactive
 
       {/* =======card div============== */}
       <div className="grid md:grid-cols-3 gap-4">
-        {mapdata.map((item) => {
-          return <Card item={item} theme={theme} />;
-        })}
+        {mapdata.length > 0 ? mapdata.map((item) => {
+          return <Card item={item} theme={theme} mapdata={mapdata} setMappedata={setMappedata}/>;
+        })
+        :
+        <div>No data found</div>
+        }
       </div>
     </div>
   );

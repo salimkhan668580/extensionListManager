@@ -1,6 +1,19 @@
 import React from "react";
 
-function Card({ item, theme }) {
+function Card({ item, theme, mapdata, setMappedata }) {
+  const clickHandler = () => {
+    item.isActive = !item.isActive;
+    setMappedata([
+      ...mapdata.filter((item) => item.isActive),
+      ...mapdata.filter((item) => !item.isActive),
+
+
+    ]);
+
+
+    
+  }
+
   return (
     <div
       className={`${
@@ -42,6 +55,7 @@ function Card({ item, theme }) {
               type="checkbox"
               checked={item.isActive}
               className="sr-only peer"
+              onClick={clickHandler}
             />
             <div
               className={`
